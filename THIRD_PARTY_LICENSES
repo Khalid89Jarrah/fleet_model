@@ -1,0 +1,123 @@
+THIRD PARTY LICENSES
+====================
+
+This repository is released under the MIT License (see LICENSE), with the
+exception of the files listed below. Those files are derived from the PX4
+Autopilot project and remain under the BSD 3-Clause License.
+
+Upstream source:  https://github.com/PX4/PX4-Autopilot
+Commit:           a5a7dd802cacff91bf041abc5c7b5e496cf7aa18
+
+
+--------------------------------------------------------------------------
+1. Control allocation and sequential desaturation
+--------------------------------------------------------------------------
+
+Files in this repository:
+
+    sequentialdesaturationmotoroutput.py
+    psude_inverse.py   (normalize_control_allocation_matrix,
+                        update_control_allocation_matrix_scale,
+                        update_pseudo_inverse_full)
+
+Derived from:
+
+    src/lib/control_allocation/control_allocation/
+        ControlAllocationSequentialDesaturation.cpp
+        ControlAllocationSequentialDesaturation.hpp
+        ControlAllocationPseudoInverse.cpp
+        ControlAllocationPseudoInverse.hpp
+
+Translated from C++ to Python and modified. Original notice:
+
+/****************************************************************************
+ *
+ *   Copyright (c) 2019 PX4 Development Team. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ * 3. Neither the name PX4 nor the names of its contributors may be
+ *    used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ ****************************************************************************/
+
+
+--------------------------------------------------------------------------
+2. Moore-Penrose pseudo inverse
+--------------------------------------------------------------------------
+
+Files in this repository:
+
+    psude_inverse.py   (geninv, full_rank_cholesky)
+
+Derived from:
+
+    src/lib/matrix/matrix/PseudoInverse.hpp
+
+Authors named in that file:
+
+    Julien Lecoeur <julien.lecoeur@gmail.com>
+    Julian Kent <julian@auterion.com>
+
+Algorithm attributed in that file to:
+
+    Courrieu, P. (2008). Fast Computation of Moore-Penrose Inverse Matrices,
+    8(2), 25-29. http://arxiv.org/abs/0804.4809
+
+The file carries no notice of its own. The notice of the PX4 matrix library
+that contains it, from src/lib/matrix/CMakeLists.txt:
+
+############################################################################
+#
+#   Copyright (c) 2021 PX4 Development Team. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in
+#    the documentation and/or other materials provided with the
+#    distribution.
+# 3. Neither the name PX4 nor the names of its contributors may be
+#    used to endorse or promote products derived from this software
+#    without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+# OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+# AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+############################################################################
