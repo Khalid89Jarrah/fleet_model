@@ -1,0 +1,33 @@
+rotors:
+  CA_ROTOR0:
+    PX: 0.159
+    PY: 0.159
+    KM: 0.05
+    CT: 6.5
+    AX: 0.0
+    AY: 0.0
+    AZ: -1.0
+  CA_ROTOR1:
+    PX: -0.159
+    PY: -0.159
+    KM: 0.05
+    CT: 6.5
+    AX: 0.0
+    AY: 0.0
+    AZ: -1.0
+  CA_ROTOR2:
+    PX: 0.159
+    PY: -0.159
+    KM: -0.05
+    CT: 6.5
+    AX: 0.0
+    AY: 0.0
+    AZ: -1.0
+  CA_ROTOR3:
+    PX: -0.159
+    PY: 0.159
+    KM: -0.05
+    CT: 6.5
+    AX: 0.0
+    AY: 0.0
+    AZ: -1.0
