@@ -1,34 +1,42 @@
 THIRD PARTY LICENSES
 ====================
 
-This repository is released under the MIT License (see LICENSE), with the
-exception of the files listed below. Those files are derived from the PX4
-Autopilot project and remain under the BSD 3-Clause License.
+fleet_model is released under the MIT License (see LICENSE).
 
-Upstream source:  https://github.com/PX4/PX4-Autopilot
-Commit:           a5a7dd802cacff91bf041abc5c7b5e496cf7aa18
+The two files below contain code taken from the PX4 Autopilot project and
+translated from C++ to Python. Translating does not change the license: that
+code remains under the BSD 3-Clause License reproduced below.
+
+Upstream:  https://github.com/PX4/PX4-Autopilot
 
 
---------------------------------------------------------------------------
-1. Control allocation and sequential desaturation
---------------------------------------------------------------------------
+A. src/sensor_interaction/sensor_interaction/sequentialdesaturationmotoroutput.py
 
-Files in this repository:
+  from [src/lib/control_allocation/control_allocation/ControlAllocationSequentialDesaturation.cpp](https://github.com/PX4/PX4-Autopilot/blob/a5a7dd802cacff91bf041abc5c7b5e496cf7aa18/src/lib/control_allocation/control_allocation/ControlAllocationSequentialDesaturation.cpp)
 
-    sequentialdesaturationmotoroutput.py
-    psude_inverse.py   (normalize_control_allocation_matrix,
-                        update_control_allocation_matrix_scale,
-                        update_pseudo_inverse_full)
+  from [src/lib/control_allocation/control_allocation/ControlAllocationSequentialDesaturation.hpp](https://github.com/PX4/PX4-Autopilot/blob/a5a7dd802cacff91bf041abc5c7b5e496cf7aa18/src/lib/control_allocation/control_allocation/ControlAllocationSequentialDesaturation.hpp)
 
-Derived from:
+      computeDesaturationGain, desaturateActuators, mixAirmodeDisabled, mixYaw
+      @author Roman Bapst <bapstroman@gmail.com>
+      @author Beat Küng <beat-kueng@gmx.net>
 
-    src/lib/control_allocation/control_allocation/
-        ControlAllocationSequentialDesaturation.cpp
-        ControlAllocationSequentialDesaturation.hpp
-        ControlAllocationPseudoInverse.cpp
-        ControlAllocationPseudoInverse.hpp
 
-Translated from C++ to Python and modified. Original notice:
+B. src/sensor_interaction/sensor_interaction/psude_inverse.py
+
+  from [src/lib/control_allocation/control_allocation/ControlAllocationPseudoInverse.cpp](https://github.com/PX4/PX4-Autopilot/blob/a5a7dd802cacff91bf041abc5c7b5e496cf7aa18/src/lib/control_allocation/control_allocation/ControlAllocationPseudoInverse.cpp)
+      
+      update_pseudo_inverse_full, update_control_allocation_matrix_scale,
+      normalize_control_allocation_matrix
+      @author Julien Lecoeur <julien.lecoeur@gmail.com>
+
+  from [src/lib/matrix/matrix/PseudoInverse.hpp](https://github.com/PX4/PX4-Autopilot/blob/a5a7dd802cacff91bf041abc5c7b5e496cf7aa18/src/lib/matrix/matrix/PseudoInverse.hpp)
+      
+      geninv, full_rank_cholesky
+      @author Julien Lecoeur <julien.lecoeur@gmail.com>
+      @author Julian Kent <julian@auterion.com>
+      Courrieu, P. (2008). Fast Computation of Moore-Penrose Inverse Matrices,
+      8(2), 25-29. http://arxiv.org/abs/0804.4809
+
 
 /****************************************************************************
  *
@@ -62,62 +70,3 @@ Translated from C++ to Python and modified. Original notice:
  * POSSIBILITY OF SUCH DAMAGE.
  *
  ****************************************************************************/
-
-
---------------------------------------------------------------------------
-2. Moore-Penrose pseudo inverse
---------------------------------------------------------------------------
-
-Files in this repository:
-
-    psude_inverse.py   (geninv, full_rank_cholesky)
-
-Derived from:
-
-    src/lib/matrix/matrix/PseudoInverse.hpp
-
-Authors named in that file:
-
-    Julien Lecoeur <julien.lecoeur@gmail.com>
-    Julian Kent <julian@auterion.com>
-
-Algorithm attributed in that file to:
-
-    Courrieu, P. (2008). Fast Computation of Moore-Penrose Inverse Matrices,
-    8(2), 25-29. http://arxiv.org/abs/0804.4809
-
-The file carries no notice of its own. The notice of the PX4 matrix library
-that contains it, from src/lib/matrix/CMakeLists.txt:
-
-############################################################################
-#
-#   Copyright (c) 2021 PX4 Development Team. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions
-# are met:
-#
-# 1. Redistributions of source code must retain the above copyright
-#    notice, this list of conditions and the following disclaimer.
-# 2. Redistributions in binary form must reproduce the above copyright
-#    notice, this list of conditions and the following disclaimer in
-#    the documentation and/or other materials provided with the
-#    distribution.
-# 3. Neither the name PX4 nor the names of its contributors may be
-#    used to endorse or promote products derived from this software
-#    without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-# OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
-# AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-# POSSIBILITY OF SUCH DAMAGE.
-#
-############################################################################

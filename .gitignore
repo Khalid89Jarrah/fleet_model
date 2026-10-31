@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+# Byte compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
@@ -90,8 +90,8 @@ ipython_config.py
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   However, in case of collaboration, if having platform specific dependencies or dependencies
+#   having no cross platform support, pipenv may install dependencies that don't work, or not
 #   install all needed dependencies.
 # Pipfile.lock
 
@@ -111,7 +111,7 @@ ipython_config.py
 
 # pdm
 #   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
+#   pdm recommends including project wide configuration in pdm.toml, but excluding .pdm-python.
 #   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
 # pdm.lock
 # pdm.toml
@@ -191,7 +191,7 @@ cython_debug/
 # .idea/
 
 # Abstra
-#   Abstra is an AI-powered process automation framework.
+#   Abstra is an AI powered process automation framework.
 #   Ignore directories containing user credentials, local state, and settings.
 #   Learn more at https://abstra.io/docs
 .abstra/
