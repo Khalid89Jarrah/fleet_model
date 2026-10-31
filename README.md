@@ -169,6 +169,22 @@ repository.
 
 ---
 
+## Demonstration Videos
+
+### 1. PID Crash
+<video src="https://github.com/Khalid89Jarrah/fleet_model/raw/refs/heads/main/videos/damage_1_pid_crash.mp4" controls width="100%"></video>
+
+### 2. High Altitude Yaw Degradation
+<video src="https://github.com/Khalid89Jarrah/fleet_model/raw/refs/heads/main/videos/damage_2_yaw_degradation_high_altitude.mp4" controls width="100%"></video>
+
+### 3. Low Altitude Yaw Degradation
+<video src="https://github.com/Khalid89Jarrah/fleet_model/raw/refs/heads/main/videos/damage_2_yaw_degradation_low_altitude.mp4" controls width="100%"></video>
+
+### 4. PPO Hard Maneuvering
+<video src="https://github.com/Khalid89Jarrah/fleet_model/raw/refs/heads/main/videos/ppo_hard_maneuvering.mp4" controls width="100%"></video>
+
+---
+
 ## License
 
 MIT, see `LICENSE`.
