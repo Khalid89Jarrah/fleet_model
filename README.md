@@ -84,8 +84,7 @@ docker build --network=host -f docker/Dockerfile --progress=plain -t fleet_model
 ```
 
 `src` mounts at `/opt/fleet_model_ws/src` and `model` at
-`/opt/fleet_model_ws/models`. `PYTHONPATH` is set in the image, so no ROS
-workspace build is required.
+`/opt/fleet_model_ws/models`. `PYTHONPATH` is set in the image.
 
 Outside Docker the requirements are Python 3.12, TensorFlow 2.18, Gymnasium,
 NumPy, PyYAML, matplotlib and pandas, with
@@ -157,13 +156,6 @@ Emits `ppo_actor_<N>_online_tuning_float32.tflite`, `ppo_model.cpp` and
 `ppo_model.hpp`. The run aborts if the TensorFlow Lite outputs and the NumPy
 reference disagree by more than `--tol`, default `1e-5`, so a model that fails
 verification is never written out as C++.
-
-`tflite/` is outside the directory mounted by `run_docker.sh`, so run the
-converter on the host, or mount the repository root instead of `src`.
-
-The firmware side, which selects between the learned controller and the
-baseline PID and applies the bounded online adaptation, is not part of this
-repository.
 
 ---
 
