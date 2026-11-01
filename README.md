@@ -84,8 +84,7 @@ docker build --network=host -f docker/Dockerfile --progress=plain -t fleet_model
 ```
 
 `src` mounts at `/opt/fleet_model_ws/src` and `model` at
-`/opt/fleet_model_ws/models`. `PYTHONPATH` is set in the image, so no ROS
-workspace build is required.
+`/opt/fleet_model_ws/models`. `PYTHONPATH` is set in the image.
 
 Outside Docker the requirements are Python 3.12, TensorFlow 2.18, Gymnasium,
 NumPy, PyYAML, matplotlib and pandas, with
