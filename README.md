@@ -189,6 +189,31 @@ https://github.com/user-attachments/assets/9201af05-c6a9-4f05-8e02-c78a9efe203d
 
 ---
 
+### Using the model in firmware
+
+1. Copy `ppo_model.cpp` and `ppo_model.hpp` into the rate control module of
+   your flight stack and add them to its build.
+
+2. Enable TensorFlow Lite for Microcontrollers in the firmware, and give the
+   rate controller enough stack and a small tensor arena to run inference.
+
+3. In the rate controller, load the model and read the torque demand from the
+   tau output, using the output index from the header rather than assuming an
+   order. Feed it the twelve value observation listed under Interfaces.
+
+4. Keep the existing PID controller and add a parameter to select between the
+   two, defaulting to PID so the aircraft falls back if the model does not
+   load.
+
+**Notes**
+> Both controllers take the same inputs, the measured rate, the commanded rate,
+> the angular acceleration and the clamped error integral, and both produce a
+> body torque demand in `[-1, 1]` published on the same topic. The learned
+> controller replaces only the block that turns rate error into that demand, so
+> control allocation, mixing and everything downstream is untouched.
+
+---
+
 ## License
 
 MIT, see `LICENSE`.
