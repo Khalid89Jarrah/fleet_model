@@ -157,13 +157,6 @@ Emits `ppo_actor_<N>_online_tuning_float32.tflite`, `ppo_model.cpp` and
 reference disagree by more than `--tol`, default `1e-5`, so a model that fails
 verification is never written out as C++.
 
-`tflite/` is outside the directory mounted by `run_docker.sh`, so run the
-converter on the host, or mount the repository root instead of `src`.
-
-The firmware side, which selects between the learned controller and the
-baseline PID and applies the bounded online adaptation, is not part of this
-repository.
-
 ---
 
 ## Demonstration Videos
