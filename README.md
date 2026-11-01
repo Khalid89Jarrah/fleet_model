@@ -12,9 +12,7 @@ rather than one fixed airframe.
 
 Reference implementation for:
 
-> Khaled Jarrah and Osamah A. Rawashdeh. Training a Multirotor UAV Rate
-> Controller over a Population of Degraded Airframes for Onboard Execution and
-> In Flight Adaptation.
+> Khaled Jarrah and Osamah A. Rawashdeh. A Learned Rate Controller with In Flight Adaptation, Trained Across Degraded Airframes and Flown with Damaged Rotors on a Low Cost Autopilot.
 
 ---
 
